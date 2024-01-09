@@ -9,6 +9,14 @@
                         </a></h5>
                 </div>
             </div>
+            <div>
+                <form action="{{ route('ideas.destroy', $idea->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <a href="{{route('ideas.show' , $idea->id)}}">View</a>
+                    <button class="btn btn-danger btn-sm ">x</button>
+                </form>
+            </div>
         </div>
     </div>
     <div class="card-body">
@@ -22,7 +30,7 @@
             </div>
             <div>
                 <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
-                    {{$idea->created_at}} </span>
+                    {{ $idea->created_at }} </span>
             </div>
         </div>
         <div>
