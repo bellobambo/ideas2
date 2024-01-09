@@ -9,10 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $idea = new Idea([
-            'content' => 'Hello Youtube',
-        ]);
-        $idea->save();
+     
 
 
         // dump(Idea::all());
