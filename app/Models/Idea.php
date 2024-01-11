@@ -13,5 +13,15 @@ class Idea extends Model
         'content',
         'like',
     ];
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
+    ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
 }
