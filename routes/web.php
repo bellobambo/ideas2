@@ -44,7 +44,7 @@ Route::POST('users/{user}/unfollow', [FollowerController::class , 'unfollow'])->
 
 Route::get('/terms', function () {
     return view('terms');
-});
+})->name('terms');
 
 
 
