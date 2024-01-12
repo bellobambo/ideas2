@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
+        // see email in broswer
+
+        // return new WelcomeEmail(auth()->user());
+
         $ideas = Idea::orderBy('created_at', 'DESC');
 
         if (request()->has('search')) {
