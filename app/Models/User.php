@@ -72,6 +72,11 @@ class User extends Authenticatable
 
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(Idea::class , 'idea_like')->withTimestamps();
+    }
+
     public function getImageURL()
     {
         if ($this->image) {
