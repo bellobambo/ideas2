@@ -10,7 +10,7 @@
 
 
             <div class="mt-3">
-              @include('shared.user-edit-card')
+              @include('users.shared.user-edit-card')
             </div>
 
             <hr>
@@ -18,7 +18,7 @@
             @if (count($ideas) > 0)
             @foreach ($ideas as $idea)
                 <div class="mt-3">
-                    @include('shared.idea-card')
+                    @include('ideas.shared.user-card')
                 </div>
             @endforeach
         @else

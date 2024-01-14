@@ -8,18 +8,18 @@
         </div>
         <div class="col-6">
             @include('shared.success')
-            @include('shared.submit-idea')
+            @include('ideas.shared.submit-idea')
             <hr>
 
-            @if (count($ideas) > 0)
-                @foreach ($ideas as $idea)
-                    <div class="mt-3">
-                        @include('shared.idea-card')
-                    </div>
-                @endforeach
-            @else
-                No Result Found
-            @endif
+
+            @forelse ($ideas as $idea)
+                <div class="mt-3">
+                    @include('ideas.shared.idea-card')
+                </div>
+            @empty
+                <p class="text-center mt-4">No comments Found</p>
+            @endforelse
+
 
             <div class="mt-3">
 
