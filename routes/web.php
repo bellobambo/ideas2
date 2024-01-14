@@ -52,11 +52,13 @@ Route::POST('ideas/{idea}/unlike', [IdeaLikeController::class , 'unlike'])->midd
 Route::get('/feed', FeedController::class)->middleware('auth')->name('feed');
 
 
+
 Route::get('/terms', function () {
     return view('terms');
 })->name('terms');
 
 
+Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 
 
