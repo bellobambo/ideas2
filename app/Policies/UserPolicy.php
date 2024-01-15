@@ -13,8 +13,9 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
-        return $user->id == is($model);
+        return $user->id === $model->id;
     }
+
 
     /**
      * Determine whether the user can delete the model.

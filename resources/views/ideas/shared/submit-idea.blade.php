@@ -1,5 +1,5 @@
 @auth()
-    <h4> Share yours ideas </h4>
+    <h4> {{trans('ideas.Share yours ideas')}} </h4>
     <div class="row">
         <form action="{{ route('ideas.store') }}" method="post">
             @csrf
@@ -18,5 +18,5 @@
 
 
 @guest()
-    <h4>Login to Share yours ideas </h4>
+    <h4> {{trans('ideas.login_to_share')}} </h4>
 @endguest
