@@ -12,12 +12,16 @@
             </div>
             <div class="d-flex">
                 <a href="{{ route('ideas.show', $idea->id) }}">View</a>
-                <a class="mx-2" href="{{ route('ideas.edit', $idea->id) }}">Edit</a>
-                <form action="{{ route('ideas.destroy', $idea->id) }}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-danger btn-sm ">x</button>
-                </form>
+                @auth()
+                    @can('update', $idea)
+                        <a class="mx-2" href="{{ route('ideas.edit', $idea->id) }}">Edit</a>
+                        <form action="{{ route('ideas.destroy', $idea->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-danger btn-sm ">x</button>
+                        </form>
+                    @endcan
+                @endauth
             </div>
         </div>
     </div>
@@ -51,6 +55,6 @@
                     {{ $idea->created_at->diffForHumans() }} </span>
             </div>
         </div>
-        @include('ideas.webshared.comment-box')
+        @include('ideas.shared.comment-box')
     </div>
 </div>

@@ -9,6 +9,8 @@ use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\IdeaLikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +60,7 @@ Route::get('/terms', function () {
 })->name('terms');
 
 
-Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'can:admin']);
 
 
 

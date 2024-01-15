@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <img style="width:150px" class="me-3 avatar-sm rounded-circle" src="{{ $user->getImageUrl() }}"
-                    alt="Mario Avatar">
+                    alt="{{ $user->name }}">
                 <div>
 
                     <h3 class="card-title mb-0"><a href="#"> {{ $user->name }}
@@ -13,11 +13,11 @@
                 </div>
             </div>
             @auth()
-                @if (Auth::id() !== $user->id)
+                @can('update', $user)
                     <div>
                         <a href="{{ route('user.edit', $user->id) }}">Edit</a>
                     </div>
-                @endif
+                @endcan
             @endauth
         </div>
 
@@ -32,7 +32,7 @@
             @include('users.shared.user-stats')
 
             @auth()
-                @if (Auth::id() !== $user->id)
+                @if (Auth::user()->isNot($user))
                     <div class="mt-3">
                         @if (Auth::user()->follows($user))
                             <form method="POST" action=" {{ route('users.unfollow', $user->id) }}">

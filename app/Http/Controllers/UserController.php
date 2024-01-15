@@ -35,6 +35,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('update');
         $ideas = $user->ideas()->paginate(5);
         $editing = true;
 
@@ -47,6 +48,8 @@ class UserController extends Controller
      */
     public function update(User $user)
     {
+        $this->authorize('update');
+
         $validated = request()->validate([
             'name' => 'required |min:3| max:40',
             'bio' => 'nullable |min:1| max:255',
