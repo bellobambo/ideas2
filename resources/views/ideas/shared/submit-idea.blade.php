@@ -1,4 +1,7 @@
 @auth()
+
+@persist('submit-idea')
+
     <h4> {{trans('ideas.Share yours ideas')}} </h4>
     <div class="row">
         <form action="{{ route('ideas.store') }}" method="post">
@@ -14,6 +17,8 @@
             </div>
         </form>
     </div>
+@endpersist
+
 @endauth
 
 
